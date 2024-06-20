@@ -1,9 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    body {
-        font-size: 18px;
-    }
+body {
+	font-size: 18px;
+}
+
+.dark {
+	background-color: hsl(235, 21%, 11%);
+	background-color: hsl(235, 24%, 19%);
+	background-color: hsl(234, 39%, 85%);
+	background-color: hsl(236, 33%, 92%);
+	background-color: hsl(234, 11%, 52%);
+	background-color: hsl(233, 14%, 35%);
+	background-color: hsl(237, 14%, 26%);
+}
+
+.light {
+	background-color: hsl(0, 0%, 98%);
+	background-color: hsl(236, 33%, 92%);
+	background-color: hsl(233, 11%, 84%);
+	background-color: hsl(236, 9%, 61%);
+	background-color: hsl(235, 19%, 35%);
+}
+
+.primary {
+	background-color: hsl(220, 98%, 61%);
+	background-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+}
