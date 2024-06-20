@@ -8,7 +8,7 @@ export const ToDoForm = () => {
 				type="text"
 				name="todo"
 				placeholder="Create a new todo..."
-				className="w-10/12 p-1 text-xl text-light-very-dark-grayishBlue outline-none"
+				className="bg-light-gray w-10/12 p-1 text-xl text-light-very-dark-grayishBlue outline-none"
 			/>
 		</form>
 	);

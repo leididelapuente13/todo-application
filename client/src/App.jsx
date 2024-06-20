@@ -47,12 +47,12 @@ function App() {
 				{tasks.map((task) => (
 					<TaskCard task={task} key={task.id} />
 				))}
-				<div className="flex justify-between px-5 pt-5 text-base text-light-dark-grayish-blue">
+				<div className="flex justify-between px-5 pt-5 text-lg text-light-dark-grayish-blue">
 					<p>{`${tasks.length} items left`}</p>
 					<button type="button">Clear completed</button>
 				</div>
 			</section>
-			<div className="mx-auto mt-8 flex w-10/12 justify-center items-center gap-x-5 bg-light-gray px-4 py-6 shadow-xl shadow-light-grayish-blue">
+			<div className="mx-auto mt-8 flex w-10/12 justify-center items-center gap-x-5 bg-light-gray px-4 py-6 shadow-xl shadow-light-grayish-blue md:w-4/12 md:-mt-16 md:shadow-none md:h-16">
 				<button
 					type="button"
 					className="font-bold text-primary-bright-blue"
