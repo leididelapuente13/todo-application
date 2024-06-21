@@ -8,25 +8,12 @@ body {
 	font-size: 18px;
 }
 
-.dark {
-	background-color: hsl(235, 21%, 11%);
-	background-color: hsl(235, 24%, 19%);
-	background-color: hsl(234, 39%, 85%);
-	background-color: hsl(236, 33%, 92%);
-	background-color: hsl(234, 11%, 52%);
-	background-color: hsl(233, 14%, 35%);
-	background-color: hsl(237, 14%, 26%);
-}
-
-.light {
-	background-color: hsl(0, 0%, 98%);
-	background-color: hsl(236, 33%, 92%);
-	background-color: hsl(233, 11%, 84%);
-	background-color: hsl(236, 9%, 61%);
-	background-color: hsl(235, 19%, 35%);
-}
-
-.primary {
-	background-color: hsl(220, 98%, 61%);
-	background-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+.hsh {
+	background-color: #161722;
+	background-color: #25273c;
+	background-color: #cacde8;
+	background-color: #e4e5f1;
+	background-color: #777a92;
+	background-color: #4d5066;
+	background-color: #393a4c;
 }

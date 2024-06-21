@@ -4,7 +4,7 @@ export const CheckButton = ({ taskStatus = false, taskId }) => {
 	return (
 		<button
 			type="button"
-			className="rounded-full border border-light-grayish-blue p-3 text-center bg-primary-gradient"
+			className="rounded-full border-2 border-light-grayish-blue p-3 text-center bg-primary-gradient dark:border-dark-grayishBlue-shade"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
 				<path

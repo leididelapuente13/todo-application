@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { TaskCard } from './components/TaskCard';
 import { ToDoForm } from './components/ToDoForm';
 
 function App() {
+
+	const [theme, setTheme] = useState('light')
+
 	const tasks = [
 		{
 			id: 'hdhddhhdh',
@@ -25,9 +29,9 @@ function App() {
 		}
 	];
 	return (
-		<main className="h-screen bg-light-gray font-josefin-sans pb-3">
-			<header className="bg-mobile-lightTheme-img flex h-1/3 max-h-60 flex-wrap items-start justify-between bg-cover bg-no-repeat py-12">
-				<div className="mx-auto flex w-11/12 justify-between gap-x-2 px-5">
+		<main className="h-full min-h-screen bg-light-gray pb-3 font-josefin-sans dark:bg-dark-blue">
+			<header className="flex h-1/3 max-h-60 flex-wrap items-start justify-between bg-mobile-lightTheme-img bg-cover bg-no-repeat py-12 dark:bg-mobile-darkTheme-img md:bg-desktop-lightTheme-img dark:md:bg-desktop-darkTheme-img">
+				<div className="mx-auto flex w-11/12 max-w-2xl justify-between gap-x-2 px-5 lg:px-0">
 					<h1 className="text-3xl font-bold tracking-[1rem] text-light-gray">
 						TODO
 					</h1>
@@ -43,35 +47,38 @@ function App() {
 				</div>
 				<ToDoForm />
 			</header>
-			<section className="mx-auto -mt-7 h-fit w-10/12 flex-col gap-y-10 rounded-lg bg-light-gray py-4 shadow-xl shadow-light-grayish-blue">
+			<section className="mx-auto -mt-7 h-fit w-10/12 max-w-2xl flex-col gap-y-10 rounded-lg bg-light-gray pb-4 shadow-xl shadow-light-grayish-blue dark:bg-dark-desaturated-blue dark:shadow-md">
 				{tasks.map((task) => (
 					<TaskCard task={task} key={task.id} />
 				))}
-				<div className="flex justify-between px-5 pt-5 text-lg text-light-dark-grayish-blue">
+				<div className="dark:text-dark-basic-grayishBlue flex justify-between px-5 pt-5 text-lg font-normal text-light-dark-grayish-blue">
 					<p>{`${tasks.length} items left`}</p>
 					<button type="button">Clear completed</button>
 				</div>
 			</section>
-			<div className="mx-auto mt-8 flex w-10/12 justify-center items-center gap-x-5 bg-light-gray px-4 py-6 shadow-xl shadow-light-grayish-blue md:w-4/12 md:-mt-16 md:shadow-none md:h-16">
-				<button
-					type="button"
-					className="font-bold text-primary-bright-blue"
-				>
+			<div className="mx-auto mt-8 flex w-10/12 items-center justify-center gap-x-5 rounded-md bg-light-gray px-4 py-6 shadow-xl shadow-light-grayish-blue dark:bg-dark-desaturated-blue dark:shadow-xl md:-mt-16 md:h-16 md:w-4/12 md:shadow-none">
+				<button type="button" className="font-bold text-primary-bright-blue">
 					All
 				</button>
 				<button
 					type="button"
-					className="font-bold text-light-dark-grayish-blue"
+					className="dark:text-dark-basic-grayishBlue font-bold text-light-dark-grayish-blue"
 				>
 					Active
 				</button>
 				<button
 					type="button"
-					className="font-bold text-light-dark-grayish-blue"
+					className="dark:text-dark-basic-grayishBlue font-bold text-light-dark-grayish-blue"
 				>
 					Completed
 				</button>
 			</div>
+			<footer className='mt-20 p-2'>
+				<p className='text-light-very-dark-grayishBlue text-center font-bold'>
+					Challenge by <a href="https://www.frontendmentor.io" target='blank' className='text-primary-bright-blue'>Frontend Mentor</a> Coded by{' '}
+					<a href="https://github.com/leidi2004" target='blank' className='text-primary-bright-blue'>Leidi De La Puente</a>
+				</p>
+			</footer>
 		</main>
 	);
 }
