@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonTheme } from '../../atoms/Buttons/Theme/ButtonTheme';
+import { ThemeButton } from '../../atoms/Buttons/Theme/ThemeButton';
 import { ToDoForm } from '../../molecules/Form/ToDoForm';
 
 export const Header = () => {
@@ -9,7 +9,7 @@ export const Header = () => {
 				<h1 className="text-3xl font-bold tracking-[1rem] text-light-gray">
 					TODO
 				</h1>
-				<ButtonTheme />
+				<ThemeButton />
 			</div>
 			<ToDoForm />
 		</header>

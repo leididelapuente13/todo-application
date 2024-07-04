@@ -10,7 +10,7 @@ export const CheckButton = ({ taskStatus = false, taskId }) => {
 				<path
 					fill="none"
 					stroke="#FFF"
-					stroke-width="2"
+					strokeWidth="2"
 					d="M1 4.304L3.696 7l6-6"
 				/>
 			</svg>
@@ -19,5 +19,5 @@ export const CheckButton = ({ taskStatus = false, taskId }) => {
 };
 
 CheckButton.propTypes = {
-	taskStatus: PropTypes.bool.isRequired
+	taskStatus: PropTypes.bool
 };

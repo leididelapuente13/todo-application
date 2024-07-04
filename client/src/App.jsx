@@ -1,8 +1,11 @@
+import { ThemeProvider } from './context/ThemeContext';
 import { Start } from './pages/Start/Start';
 
 function App() {
 	return (
-		<Start />
+		<ThemeProvider>
+			<Start />
+		</ThemeProvider>
 	);
 }
 
