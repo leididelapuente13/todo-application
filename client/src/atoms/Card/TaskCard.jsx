@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { CheckButton } from './CheckButton';
-import { DeleteButton } from './DeleteButton';
+import { CheckButton } from '../Buttons/Check/CheckButton';
+import { DeleteButton } from '../Buttons/Delete/DeleteButton';
 
 export const TaskCard = ({ task }) => {
 	return (
