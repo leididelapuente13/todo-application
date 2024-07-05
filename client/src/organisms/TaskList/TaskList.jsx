@@ -1,5 +1,5 @@
 import { ClearButton } from '../../atoms/Buttons/Clear/ClearButton';
-import { TaskCard } from '../../atoms/Card/TaskCard';
+import { TaskCard } from '../../molecules/Card/TaskCard';
 
 export const TaskList = () => {
 	const tasks = [
@@ -11,12 +11,12 @@ export const TaskList = () => {
 		{
 			id: 'hdhddhhd',
 			task: 'Do the laundry',
-			status: false
+			status: true
 		},
 		{
 			id: 'hdhdd',
 			task: 'Sleep',
-			status: false
+			status: true
 		},
 		{
 			id: 'hdhdhdh',

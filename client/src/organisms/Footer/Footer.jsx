@@ -18,7 +18,7 @@ export const Footer = () => {
 					target="blank"
 					className="text-primary-bright-blue"
 				>
-					Leidi De La Puente
+					Leidi
 				</a>
 			</p>
 		</footer>

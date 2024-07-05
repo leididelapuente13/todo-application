@@ -22,7 +22,6 @@ export const ThemeProvider = ({ children }) => {
 		} else {
 			app.classList.add('dark');
 		}
-		console.log(theme);
 	}, [theme]);
 
 	return (
