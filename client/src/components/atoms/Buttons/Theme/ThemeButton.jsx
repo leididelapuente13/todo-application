@@ -1,4 +1,4 @@
-import { useThemeContext } from "../../../context/ThemeContext";
+import { useThemeContext } from "../../../../context/ThemeContext";
 
 export const ThemeButton = () => {
 	const {changeTheme} = useThemeContext();

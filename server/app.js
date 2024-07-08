@@ -1,7 +1,9 @@
-import express from "express";
+import express, { json } from "express";
 
 const createApp = () => {
   const app = express();
+  app.disable('x-powered-by');
+  app.use(json());
 
   const port = process.env ?? 7070;
 

@@ -7,7 +7,7 @@ export default {
 			colors: {
 				'primary-bright-blue': 'hsl(220, 98%, 61%)',
 				'primary-gradient':
-					'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
+				'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
 				//Light theme
 				'light-gray': 'hsl(0, 0%, 98%)',
 				'light-grayish-blue': 'hsl(233, 11%, 84%)',
