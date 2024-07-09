@@ -1,4 +1,4 @@
-import pool from "../database/config";
+import pool from "../database/config/config";
 export class TaskModel {
   static async create({ data }) {
     const { id, task, status } = data;
@@ -9,7 +9,7 @@ export class TaskModel {
         [id, task, status]
       );
 
-      result.affectedRows > 0;
+      return result;
     } finally {
       connection.release();
     }
