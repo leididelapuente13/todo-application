@@ -1,5 +1,5 @@
 import { validatePartialTask, validateTask } from "../schemas/Tasks";
-class TaskController {
+export class TaskController {
   constructor(TaskModel) {
     this.TaskModel = TaskModel;
   }

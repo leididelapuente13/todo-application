@@ -5,7 +5,7 @@ const createApp = () => {
   const app = express();
   app.disable('x-powered-by');
   app.use(json());
-  app.use(corsMiddleware())
+  app.use(corsMiddleware());
   const port = process.env ?? 7070;
 
   app.listen(port, () =>

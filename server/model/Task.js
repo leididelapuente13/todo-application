@@ -18,7 +18,7 @@ export class TaskModel {
   static async getAll({ status }) {
     const connection = await pool.getConnection();
     try {
-      if (status) {
+      if (status !== undefined) {
         const [tasks] = connection.query(
           "SELECT BIN_TO_UUID(id), task, status FROM tasks WHERE status = ?;",
           [status]
