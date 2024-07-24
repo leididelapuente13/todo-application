@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "dotenv": "^16.4.5"
-  },
-  "dependencies": {
-    "zod": "3.23.8"
-  }
-}

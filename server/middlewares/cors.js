@@ -1,8 +1,8 @@
 import cors from "cors";
 
-const ALLOWED_PORTS = ["http://localhost:5173", "http://localhost:7070"];
+const ALLOWED_PORTS = ["http://localhost:5173", "http://localhost:8080"];
 
-export const corsMiddleware = ({ acceptedOrigins = ALLOWED_PORTS }) => {
+ const corsMiddleware = ( acceptedOrigins = ALLOWED_PORTS ) => 
   cors({
     origin: (origin, result) => {
       if (acceptedOrigins.includes(origin)) {
@@ -14,4 +14,6 @@ export const corsMiddleware = ({ acceptedOrigins = ALLOWED_PORTS }) => {
       }
     }
   });
-};
+
+
+export default corsMiddleware;

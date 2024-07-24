@@ -1,5 +1,5 @@
--- Active: 1716900472048@@127.0.0.1@3306@todoappdb
-CRETAE DATABASE todoAppDB;
+-- Active: 1721571957405@@localhost@3306
+CREATE DATABASE todoAppDB;
 
 USE todoAppDB;
 

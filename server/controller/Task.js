@@ -1,31 +1,24 @@
-import { validatePartialTask, validateTask } from "../schemas/Tasks";
+import { validatePartialTask, validateTask } from "../schemas/Tasks.js";
 export class TaskController {
   constructor(TaskModel) {
     this.TaskModel = TaskModel;
   }
 
-  add = async (request, response) => {
+  add = async (request, response)=>{
+    console.log(request.body);
     const validationResult = validateTask(request.body);
-    if (!validationResult.success) {
-      return response
-        .status(400)
-        .json({ message: JSON.parse(validationResult.message) });
-    }
+
+    if(!validationResult.success) return response.status(400).json({message: JSON.parse(validationResult.message)});
 
     try {
-      const newTask = await this.TaskModel.create({
-        data: validationResult.data
-      });
-      response
-        .status(201)
-        .json({ message: "Task successfully created", data: newTask });
+      const newTask = await this.TaskModel.create({data: request.body});
+
+      response.status(201).json({message: 'Task created succesfully', data: newTask});
+
     } catch (error) {
-      response.status(500).json({
-        message: "There has been an error in the server",
-        error: JSON.parse(error)
-      });
+      response.status(500).json({message: 'Internal server error'});
     }
-  };
+  }
 
   get = async (request, response) => {
     try {
