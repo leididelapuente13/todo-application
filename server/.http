@@ -1,8 +1,32 @@
+### main route
+GET http://localhost:8080
+
 ### create tasks
 POST  http://localhost:8080/tasks
 Content-Type: application/json
 
 {
-    "task": "Laundry",
+    "task": "New",
+    "status": false
+}
+
+### get tasks
+GET http://localhost:8080/tasks
+
+### get tasks with status true
+GET http://localhost:8080/tasks?status=true
+
+### get tasks with status false
+GET http://localhost:8080/tasks?status=false
+
+### delete tasks
+DELETE http://localhost:8080/tasks/2f18f74a-51e0-11ef-8ec2-21a0c0e0220b
+
+### update
+PUT http://localhost:8080/tasks/f95d6c12-54cf-11ef-9f80-fe29d2a3b6a9
+Content-Type: application/json
+
+{
+    "task": "Old",
     "status": true
 }

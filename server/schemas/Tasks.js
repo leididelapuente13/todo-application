@@ -9,7 +9,7 @@ const taskSchema = z.object({
     .default(false)
 });
 
-export const validateTask = (data ) => {
+export const validateTask = ({data}) => {
   const result = taskSchema.safeParse(data);
   return result;
 };

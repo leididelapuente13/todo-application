@@ -1,19 +1,7 @@
-import cors from "cors";
+const CorsConfig = {
+  origin: ["http://localhost:5173", "http://localhost:8080"],
+  allowedHeaders: true,
+  credentials: true,
+};
 
-const ALLOWED_PORTS = ["http://localhost:5173", "http://localhost:8080"];
-
- const corsMiddleware = ( acceptedOrigins = ALLOWED_PORTS ) => 
-  cors({
-    origin: (origin, result) => {
-      if (acceptedOrigins.includes(origin)) {
-        return result(null, { origin: true });
-      } else if (!origin) {
-        return result(null, { origin: true });
-      } else {
-        return result(new Error("Not allowed by cors"), { origin: false });
-      }
-    }
-  });
-
-
-export default corsMiddleware;
+export default CorsConfig;
