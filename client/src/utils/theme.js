@@ -1,12 +1,18 @@
-const getCurrentTheme = () =>
+const getCurrentTheme = () => {
 	window.matchMedia('(prefers-color-scheme: dark)').matches;
+	console.log(
+		'system theme: ',
+		window.matchMedia('(prefers-color-scheme: dark)').matches
+	);
+};
 
 const setDefaultTheme = () => {
-	localStorage.getItem('theme') !== null
+	const theme = localStorage.getItem('theme') !== null
 		? localStorage.getItem('theme')
 		: getCurrentTheme === true
 			? 'dark'
 			: 'light';
+	return theme;
 };
 
 export { setDefaultTheme };

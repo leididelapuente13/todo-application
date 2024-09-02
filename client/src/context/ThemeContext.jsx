@@ -3,6 +3,7 @@ import { setDefaultTheme as currentTheme } from '../utils/theme';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+	console.log(currentTheme);
 	const [theme, setTheme] = useState(currentTheme);
 
 	const changeTheme = () => {
@@ -17,6 +18,7 @@ export const ThemeProvider = ({ children }) => {
 
 	useEffect(() => {
 		const app = document.getElementById('html');
+		console.log('context theme: ', theme);
 		if (theme === 'light') {
 			app.classList.remove('dark');
 		} else {
