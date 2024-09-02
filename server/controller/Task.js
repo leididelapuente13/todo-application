@@ -1,5 +1,5 @@
-import e from "express";
 import { validatePartialTask, validateTask } from "../schemas/Tasks.js";
+import parseBooleanStatusToTinyInt from "../helpers/booleanToTinyInt.js";
 export class TaskController {
   constructor({ TaskModel }) {
     this.TaskModel = TaskModel;
@@ -29,7 +29,7 @@ export class TaskController {
   get = async (request, response) => {
     const { status } = request.query;
 
-    const { validationError, statusInTinyInt } = status !== undefined && this.parseStatusToTinyInt({
+    const { validationError, statusInTinyInt } = status !== undefined && parseBooleanStatusToTinyInt({
       status: status
     });
 
@@ -48,15 +48,7 @@ export class TaskController {
     }
   };
 
-  parseStatusToTinyInt = ({ status }) => {
-    let statusToLowerCase = status.toLowerCase();
-    if (statusToLowerCase !== "true" && statusToLowerCase !== "false") {
-      return { validationError: "Invalid status: " + status };
-    }
-    const statusInTinyInt = statusToLowerCase === "true" ? 1 : 0;
-
-    return { statusInTinyInt: statusInTinyInt };
-  };
+ 
 
   edit = async (request, response) => {
     const validationResult = validatePartialTask({data: request.body});
@@ -68,7 +60,6 @@ export class TaskController {
     }
 
     const { id } = request.params;
-    console.log(id);
     try {
       const {taskWasUpdated, updatedTask} = await this.TaskModel.update({
         id: id,
@@ -93,7 +84,6 @@ export class TaskController {
 
   delete = async (request, response) => {
     const { id } = request.params;
-    console.log(id);
     try {
       const result = await this.TaskModel.delete({ id });
 

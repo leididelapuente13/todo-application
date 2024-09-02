@@ -12,7 +12,7 @@ export const CheckButton = ({ taskStatus = false, taskId }) => {
 		<button
 			onClick={changeStatus}
 			type="button"
-			className={`rounded-full border-2 border-light-grayish-blue p-3 text-center dark:border-dark-grayishBlue-shade ${isChecked && 'bg-primary-gradient'}`}
+			className={`rounded-full w-11 h-11 border-2 border-light-grayish-blue p-3 flex justify-center items-center dark:border-dark-grayishBlue-shade ${isChecked && 'bg-primary-gradient'}`}
 		>
 			{isChecked && (
 				<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">

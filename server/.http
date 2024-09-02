@@ -20,13 +20,13 @@ GET http://localhost:8080/tasks?status=true
 GET http://localhost:8080/tasks?status=false
 
 ### delete tasks
-DELETE http://localhost:8080/tasks/2f18f74a-51e0-11ef-8ec2-21a0c0e0220b
+DELETE http://localhost:8080/tasks/21b31324-68c0-11ef-bfa8-a841f498f056
 
 ### update
-PUT http://localhost:8080/tasks/f95d6c12-54cf-11ef-9f80-fe29d2a3b6a9
+PUT http://localhost:8080/tasks/37d31ec9-51d5-11ef-8ec2-21a0c0e0220b
 Content-Type: application/json
 
 {
-    "task": "Old",
+    "task": "Eat dinner",
     "status": true
 }

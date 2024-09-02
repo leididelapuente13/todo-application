@@ -3,7 +3,6 @@ import pool from "../database/config/config.js";
 export class TaskModel {
   static async create({ data }) {
     const { task, status } = data;
-    console.log(task, status);
     const connection = await pool.getConnection();
     const [uuidResult] = await connection.query("SELECT UUID() uuid;");
     const [{ uuid }] = uuidResult;
@@ -26,7 +25,6 @@ export class TaskModel {
   }
 
   static async get({ status }) {
-    console.log(status);
     const connection = await pool.getConnection();
 
     try {
@@ -59,7 +57,6 @@ export class TaskModel {
   }
 
   static async delete({id}){
-    console.log(id);
     const connection = await pool.getConnection();
     try{
       const [result] = await connection.query('DELETE FROM tasks WHERE id=(UUID_TO_BIN(?))', [id]);

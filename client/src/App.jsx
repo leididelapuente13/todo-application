@@ -1,5 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
-import { Start } from './pages/Start/Start';
+import { Start } from './components/pages/Start/Start';
 
 function App() {
 	return (
