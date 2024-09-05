@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		const app = document.getElementById('html');
+		const app = document.querySelector('html');
 		if (theme === 'light') {
 			app.classList.remove('dark');
 		} else {

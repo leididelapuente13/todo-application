@@ -1,29 +1,9 @@
+import { useTaskListContext } from '../../../context/TasksContext';
 import { ClearButton } from '../../atoms/Buttons/Clear/ClearButton';
 import { TaskCard } from '../../molecules/Card/TaskCard';
 
 export const TaskList = () => {
-	const tasks = [
-		{
-			id: 'hdhddhhdh',
-			task: 'Do the dishes',
-			status: false
-		},
-		{
-			id: 'hdhddhhd',
-			task: 'Do the laundry',
-			status: true
-		},
-		{
-			id: 'hdhdd',
-			task: 'Sleep',
-			status: true
-		},
-		{
-			id: 'hdhdhdh',
-			task: 'Eat',
-			status: false
-		}
-	];
+	const { tasks } = useTaskListContext();
 	return (
 		<section className="mx-auto -mt-7 h-fit w-10/12 max-w-2xl flex-col gap-y-10 rounded-lg bg-light-gray pb-4 shadow-xl shadow-light-grayish-blue dark:bg-dark-desaturated-blue dark:shadow-md">
 			{tasks.map((task) => (
