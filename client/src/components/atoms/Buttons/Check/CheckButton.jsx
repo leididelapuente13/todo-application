@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 export const CheckButton = ({ taskStatus = false, taskId }) => {
-	const [isChecked, setIsChecked] = useState(taskStatus);
+	const [isChecked, setIsChecked] = useState(taskStatus === 0 ? false : true);
 
 	const changeStatus = () => {
 		setIsChecked((status) => !status);
@@ -29,6 +29,6 @@ export const CheckButton = ({ taskStatus = false, taskId }) => {
 };
 
 CheckButton.propTypes = {
-	taskStatus: PropTypes.bool,
+	taskStatus: PropTypes.number,
 	taskId: PropTypes.string
 };

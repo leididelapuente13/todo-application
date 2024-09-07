@@ -1,8 +1,7 @@
 ### main route
-GET http://localhost:8080
-
+GET http://localhost:7070
 ### create tasks
-POST  http://localhost:8080/tasks
+POST  http://localhost:7070/tasks
 Content-Type: application/json
 
 {
@@ -11,19 +10,19 @@ Content-Type: application/json
 }
 
 ### get tasks
-GET http://localhost:8080/tasks
+GET http://localhost:7070/tasks
 
 ### get tasks with status true
-GET http://localhost:8080/tasks?status=true
+GET http://localhost:7070/tasks?status=true
 
 ### get tasks with status false
-GET http://localhost:8080/tasks?status=false
+GET http://localhost:7070/tasks?status=false
 
 ### delete tasks
-DELETE http://localhost:8080/tasks/21b31324-68c0-11ef-bfa8-a841f498f056
+DELETE http://localhost:7070/tasks/21b31324-68c0-11ef-bfa8-a841f498f056
 
 ### update
-PUT http://localhost:8080/tasks/37d31ec9-51d5-11ef-8ec2-21a0c0e0220b
+PUT http://localhost:7070/tasks/37d31ec9-51d5-11ef-8ec2-21a0c0e0220b
 Content-Type: application/json
 
 {
