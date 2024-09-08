@@ -3,7 +3,6 @@ import { setDefaultTheme as currentTheme } from '../utils/theme';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-	console.log(currentTheme);
 	const [theme, setTheme] = useState(currentTheme);
 
 	const changeTheme = () => {

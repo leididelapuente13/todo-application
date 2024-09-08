@@ -5,8 +5,8 @@ const taskSchema = z.object({
     .string({ message: "The task should be an string" })
     .min(3, { message: "the task should be at least 3 characters of length" }),
   status: z
-    .boolean({ message: "The status should be a boolean" })
-    .default(false)
+    .number().int().nonnegative().lte(1)
+    .default(0)
 });
 
 export const validateTask = ({data}) => {

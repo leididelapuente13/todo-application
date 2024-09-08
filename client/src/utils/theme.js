@@ -1,9 +1,5 @@
 const getCurrentTheme = () => {
 	window.matchMedia('(prefers-color-scheme: dark)').matches;
-	console.log(
-		'system theme: ',
-		window.matchMedia('(prefers-color-scheme: dark)').matches
-	);
 };
 
 const setDefaultTheme = () => {

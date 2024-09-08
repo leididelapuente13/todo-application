@@ -11,7 +11,7 @@ export const TaskCard = ({ task }) => {
 			>
 				{task.task}
 			</p>
-			<DeleteButton />
+			<DeleteButton taskId={task.id}/>
 		</div>
 	);
 };
