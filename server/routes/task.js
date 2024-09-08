@@ -8,6 +8,7 @@ export const createTaskRouter = ({TaskModel})=>{
     taskRouter.get('/', taskController.get)
     taskRouter.post('/', taskController.add);
     taskRouter.delete('/:id', taskController.delete);
-    taskRouter.put('/:id', taskController.edit)
+    taskRouter.put('/:id', taskController.edit);
+    taskRouter.patch('/:id', taskController.editStatus);
     return taskRouter;
 }

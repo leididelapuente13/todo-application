@@ -82,6 +82,36 @@ export class TaskController {
     }
   };
 
+  editStatus = async(request, response) =>{
+    const {id} = request.params;
+    const validationResult = validatePartialTask({data: request.body});
+    console.log(id, request.body)
+    if (!validationResult.success) {
+      return response
+        .status(400)
+        .json({ error: validationResult.message});
+    }
+    console.log(validationResult);
+    try {
+      const {taskWasUpdated} = await this.TaskModel.updateStatus({
+        id: id,
+        status: validationResult.data.status
+      });
+      console.log(taskWasUpdated);
+      if (!taskWasUpdated) {
+        return response.status(404).json({ message: "Task not found" });
+      }
+      return response.json({
+        message: "Task updated successfully"
+      });
+    } catch (error) {
+      response.status(500).json({
+        message: "There has been an error in the server",
+        error: error.message
+      });
+    }
+  }
+
   delete = async (request, response) => {
     const { id } = request.params;
     try {

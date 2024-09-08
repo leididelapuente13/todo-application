@@ -30,3 +30,11 @@ Content-Type: application/json
     "task": "Eat dinner",
     "status": true
 }
+
+### update status
+PATCH http://localhost:8080/tasks/37d31ec9-51d5-11ef-8ec2-21a0c0e0220b
+Content-Type: application/json
+
+{
+    "status": 0
+}

@@ -17,5 +17,6 @@ export const validateTask = ({data}) => {
 // Validation schema for updates
 export const validatePartialTask = ({ data }) => {
   const result = taskSchema.partial().safeParse(data);
+  console.log('result', result)
   return result;
 };
