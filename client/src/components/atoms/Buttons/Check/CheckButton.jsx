@@ -1,12 +1,31 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { updateTaskStatus } from '../../../../api/Task';
+import {useTaskListContext} from '../../../../context/TasksContext'
+
+const tinyIntToBoolean =(statusInTinyInt)=>{
+	if(statusInTinyInt === 0){
+		return false
+	}else if(statusInTinyInt === 1){
+		return true
+	}
+} 
+
 
 export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) => {
-	const [isChecked, setIsChecked] = useState(taskStatus === 0 ? false : true);
+	const [isChecked, setIsChecked] = useState(()=>tinyIntToBoolean(taskStatus));
 
-	const changeStatus = () => {
-		console.log(taskId);
-		setIsChecked((status) => !status);
+	const {fetchTasks} = useTaskListContext();
+	
+	const changeStatus = async () => {
+		setIsChecked(!isChecked);
+		const {message, isError, error} = await updateTaskStatus(taskId, taskStatus);
+		if(isError){
+			setIsChecked(!isChecked);
+			return alert('There has been an error updating the task', error);
+		}
+		alert(message);
+		await fetchTasks();
 	};
 
 	return (

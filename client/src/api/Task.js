@@ -42,17 +42,20 @@ const deleteTask = async (id) => {
 	}
 };
 
-const updateTask = async (id) => {
+const updateTaskStatus = async (id, status) => {
+	const newStatus = {
+		"status": status,
+	}
 	try {
-		const { data } = await axios.put(`${baseURL}/tasks/${id}`, data, {
+		const { data } = await axios.patch(`${baseURL}/tasks/${id}`, newStatus, {
 			headers: {
 				'Content-Type': 'application/json'
 			}
 		});
-		console.log(data);
+		return {message: data.message}
 	} catch (error) {
 		return {isError: true, error: error.message}
 	}
 };
 
-export { getTasks, addTask, getTasksByStatus, deleteTask, updateTask };
+export { getTasks, addTask, getTasksByStatus, deleteTask, updateTaskStatus };

@@ -4,7 +4,7 @@ const CorsConfig = {
     "http://localhost:8080",
     "http://localhost:7070"
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type"],
 };
 
