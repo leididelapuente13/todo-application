@@ -1,10 +1,13 @@
 import { ThemeProvider } from './context/ThemeContext';
 import { Start } from './components/pages/Start/Start';
+import { TasksProvider } from './context/TasksContext';
 
 function App() {
 	return (
 		<ThemeProvider>
-			<Start />
+			<TasksProvider>
+				<Start />
+			</TasksProvider>
 		</ThemeProvider>
 	);
 }

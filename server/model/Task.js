@@ -2,6 +2,7 @@ import pool from "../database/config/config.js";
 
 export class TaskModel {
   static async create({ data }) {
+    console.log('data in model: ', data);
     const { task, status } = data;
     const connection = await pool.getConnection();
     const [uuidResult] = await connection.query("SELECT UUID() uuid;");

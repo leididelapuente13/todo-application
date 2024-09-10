@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
+import {deleteTask} from '../../../../api/Task';
+import { useTaskListContext } from '../../../../context/TasksContext';
 
 export const DeleteButton = ({ taskId }) => {
+	const {fetchTasks} = useTaskListContext()
+	const removeTask = async (id)=>{
+		const {result, isError, error} = await deleteTask(id);
+		if(isError) return alert('There has been an error when trying to delete the task', error);
+		alert(result);
+		await fetchTasks();
+	}
 	return (
-		<button>
+		<button onClick={()=>removeTask(taskId)}>
 			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
 				<path
 					fill="#494C6B"

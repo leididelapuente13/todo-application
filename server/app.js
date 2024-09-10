@@ -2,15 +2,23 @@ import express, { json } from "express";
 import { createTaskRouter } from "./routes/task.js";
 import CorsConfig from "./middlewares/cors.js";
 import cors from "cors";
+import morgan from "morgan";
 
 const createApp = ({ TaskModel }) => {
   const app = express();
+
   app.disable("x-powered-by");
   app.use(json());
+
   app.use(cors(CorsConfig));
+
+  app.use(morgan("combined"));
+
   const port = process.env.PORT ?? 7070;
+
   app.use("/tasks", createTaskRouter({ TaskModel }));
   app.get("/", (req, res) => res.json({ message: "Hello" }));
+
   app.listen(port, () =>
     console.log(`App listening on http://localhost:${port}`)
   );

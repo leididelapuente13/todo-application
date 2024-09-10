@@ -3,7 +3,6 @@ import { CheckButton } from '../../atoms/Buttons/Check/CheckButton';
 import { DeleteButton } from '../../atoms/Buttons/Delete/DeleteButton';
 
 export const TaskCard = ({ task }) => {
-	// console.log(task.status);
 	return (
 		<div className="flex items-center  gap-x-3 border-b border-light-grayish-blue px-5 py-5 dark:border-dark-grayishBlue-shade">
 			<CheckButton taskId={task.id} taskStatus={task.status} />
@@ -12,7 +11,7 @@ export const TaskCard = ({ task }) => {
 			>
 				{task.task}
 			</p>
-			<DeleteButton />
+			<DeleteButton taskId={task.id}/>
 		</div>
 	);
 };
@@ -21,6 +20,6 @@ TaskCard.propTypes = {
 	task: PropTypes.shape({
 		id: PropTypes.string.isRequired,
 		task: PropTypes.string.isRequired,
-		status: PropTypes.bool.isRequired
+		status: PropTypes.number.isRequired
 	})
 };

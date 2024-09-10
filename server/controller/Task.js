@@ -6,8 +6,9 @@ export class TaskController {
   }
 
   add = async (request, response) => {
+    console.log('data in controller: ',request.body);
     const validationResult = validateTask({ data: request.body });
-
+    
     if (!validationResult.success)
       return response
         .status(400)
@@ -15,7 +16,7 @@ export class TaskController {
 
     try {
       const newTaskRequest = await this.TaskModel.create({
-        data: request.body
+        data:validationResult.data
       });
 
       response.status(201).json(newTaskRequest);
