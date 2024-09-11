@@ -9,7 +9,15 @@ const tinyIntToBoolean =(statusInTinyInt)=>{
 	}else if(statusInTinyInt === 1){
 		return true
 	}
-} 
+}
+
+const booleanToTinyInt = (statusInBoolean)=>{
+	if(statusInBoolean === true){
+		return 1;
+	}else if(statusInBoolean === false){
+		return 0
+	}
+}
 
 
 export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) => {
@@ -18,12 +26,17 @@ export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) =>
 	const {fetchTasks} = useTaskListContext();
 	
 	const changeStatus = async () => {
-		setIsChecked(!isChecked);
-		const {message, isError, error} = await updateTaskStatus(taskId, taskStatus);
-		if(isError){
-			setIsChecked(!isChecked);
+		const newStatus = !isChecked;
+		setIsChecked(newStatus);
+		// console.log(isChecked);
+		const taskStatusInTinyInt = booleanToTinyInt(newStatus);
+		const {message, isError, error} = await updateTaskStatus(taskId, taskStatusInTinyInt);
+		if(isError === true){
+			// setIsChecked((prevStatus)=>!prevStatus);
+			// console.log(isChecked);
 			return alert('There has been an error updating the task', error);
 		}
+		// console.log(isChecked);
 		alert(message);
 		await fetchTasks();
 	};
@@ -35,7 +48,7 @@ export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) =>
 			type="button"
 			className={`rounded-full w-11 h-11 border-2 border-light-grayish-blue p-3 flex justify-center items-center dark:border-dark-grayishBlue-shade ${isChecked && 'bg-primary-gradient'}`}
 		>
-			{isChecked && (
+			{isChecked  && (
 				<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
 					<path
 						fill="none"

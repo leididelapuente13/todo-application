@@ -58,7 +58,8 @@ export class TaskModel {
   }
 
   static async updateStatus ({id, status}){
-    console.log('model: ', id, status)
+    console.log('model: ', id, status);
+    console.log('MODEL TASK STATUS: ', status);
     const connection = await pool.getConnection();
     try {
       const [result] = await pool.query('UPDATE tasks SET status=? WHERE id=(UUID_TO_BIN(?))', [status, id]);

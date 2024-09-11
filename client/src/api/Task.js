@@ -46,6 +46,7 @@ const updateTaskStatus = async (id, status) => {
 	const newStatus = {
 		"status": status,
 	}
+	console.log(newStatus);
 	try {
 		const { data } = await axios.patch(`${baseURL}/tasks/${id}`, newStatus, {
 			headers: {
