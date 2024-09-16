@@ -13,6 +13,10 @@ export const TasksProvider = ({ children }) => {
 		}
 	};
 
+	const fetchTasksByStatus = async () => {
+		
+	}
+
 	useEffect(() => {
 		fetchTasks();
 	}, []);

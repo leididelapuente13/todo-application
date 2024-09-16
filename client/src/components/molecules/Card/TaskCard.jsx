@@ -7,7 +7,7 @@ export const TaskCard = ({ task }) => {
 		<div className="flex items-center  gap-x-3 border-b border-light-grayish-blue px-5 py-5 dark:border-dark-grayishBlue-shade">
 			<CheckButton taskId={task.id} taskStatus={task.status} />
 			<p
-				className={`dark:text-dark-light-grayishBlue-shade w-11/12 text-dark-basic-grayishBlue' ${task.status == 1 &&  'line-through' + ' ' + 'dark:text-dark-basic-grayishBlue text-light-grayish-blue opacity-50'}`}
+				className={`dark:text-dark-light-grayishBlue-shade w-11/12 text-dark-basic-grayishBlue' ${task.status === 1 &&  'line-through' + ' ' + 'dark:text-dark-basic-grayishBlue text-light-grayish-blue opacity-50'}`}
 			>
 				{task.task}
 			</p>

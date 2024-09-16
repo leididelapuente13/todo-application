@@ -1,7 +1,12 @@
+import { useTaskListContext } from "../../../context/TasksContext";
+
 export const ButtonGroup = () => {
+
+	const {fetchTasks} = useTaskListContext();
+
 	return (
 		<div className="mx-auto mt-8 flex w-10/12 items-center justify-center gap-x-5 rounded-md bg-light-gray px-4 py-6 shadow-xl shadow-light-grayish-blue dark:bg-dark-desaturated-blue dark:shadow-xl md:-mt-16 md:h-16 md:w-4/12 md:shadow-none">
-			<button type="button" className="font-bold text-primary-bright-blue">
+			<button type="button" className="font-bold text-primary-bright-blue" onClick={()=>fetchTasks}>
 				All
 			</button>
 			<button

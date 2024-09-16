@@ -1,45 +1,39 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { updateTaskStatus } from '../../../../api/Task';
-import {useTaskListContext} from '../../../../context/TasksContext'
-
-const tinyIntToBoolean =(statusInTinyInt)=>{
-	if(statusInTinyInt === 0){
-		return false
-	}else if(statusInTinyInt === 1){
-		return true
-	}
-}
-
-const booleanToTinyInt = (statusInBoolean)=>{
-	if(statusInBoolean === true){
-		return 1;
-	}else if(statusInBoolean === false){
-		return 0
-	}
-}
-
+import {useTaskListContext} from '../../../../context/TasksContext';
+import {booleanToTinyInt, tinyIntToBoolean} from '../../../../utils/parser'
 
 export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) => {
 	const [isChecked, setIsChecked] = useState(()=>tinyIntToBoolean(taskStatus));
 
 	const {fetchTasks} = useTaskListContext();
+
+	const toggleCheck = ()=>{
+		setIsChecked((status)=>!status);
+        console.log(isChecked);
+	}
 	
 	const changeStatus = async () => {
-		const newStatus = !isChecked;
+		toggleCheck();
+		let newStatus = !isChecked;
+		
 		setIsChecked(newStatus);
-		// console.log(isChecked);
+
 		const taskStatusInTinyInt = booleanToTinyInt(newStatus);
+
 		const {message, isError, error} = await updateTaskStatus(taskId, taskStatusInTinyInt);
+		
 		if(isError === true){
-			// setIsChecked((prevStatus)=>!prevStatus);
-			// console.log(isChecked);
 			return alert('There has been an error updating the task', error);
 		}
-		// console.log(isChecked);
-		alert(message);
+		alert(message); 
 		await fetchTasks();
 	};
+
+	useEffect(()=>{
+		console.log(isChecked);
+	}, [isChecked])
 
 	return (
 		<button

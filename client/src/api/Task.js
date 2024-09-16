@@ -43,6 +43,7 @@ const deleteTask = async (id) => {
 };
 
 const updateTaskStatus = async (id, status) => {
+	console.log(status);
 	const newStatus = {
 		"status": status,
 	}
