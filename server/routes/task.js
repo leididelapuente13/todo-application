@@ -10,5 +10,6 @@ export const createTaskRouter = ({TaskModel})=>{
     taskRouter.delete('/:id', taskController.delete);
     taskRouter.put('/:id', taskController.edit);
     taskRouter.patch('/:id', taskController.editStatus);
+    taskRouter.delete('/', taskController.deleteFinished);
     return taskRouter;
 }

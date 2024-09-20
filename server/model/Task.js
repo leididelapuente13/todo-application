@@ -78,4 +78,14 @@ export class TaskModel {
       connection.release();
     }
   }
+
+  static async deleteAllFinished (){
+    const connection = await pool.getConnection();
+    try {
+      const [result] = await connection.query('DELETE FROM tasks WHERE status=1');
+      return result.affectedRows > 0;
+    } finally {
+      connection.release();
+    }
+  }
 }

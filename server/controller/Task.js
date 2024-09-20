@@ -6,9 +6,9 @@ export class TaskController {
   }
 
   add = async (request, response) => {
-    console.log('data in controller: ',request.body);
+    console.log("data in controller: ", request.body);
     const validationResult = validateTask({ data: request.body });
-    
+
     if (!validationResult.success)
       return response
         .status(400)
@@ -16,7 +16,7 @@ export class TaskController {
 
     try {
       const newTaskRequest = await this.TaskModel.create({
-        data:validationResult.data
+        data: validationResult.data
       });
 
       response.status(201).json(newTaskRequest);
@@ -30,9 +30,11 @@ export class TaskController {
   get = async (request, response) => {
     const { status } = request.query;
 
-    const { validationError, statusInTinyInt } = status !== undefined && parseBooleanStatusToTinyInt({
-      status: status
-    });
+    const { validationError, statusInTinyInt } =
+      status !== undefined &&
+      parseBooleanStatusToTinyInt({
+        status: status
+      });
 
     if (status !== undefined && validationError !== undefined)
       return response.json({ error: validationError });
@@ -49,20 +51,16 @@ export class TaskController {
     }
   };
 
- 
-
   edit = async (request, response) => {
-    const validationResult = validatePartialTask({data: request.body});
+    const validationResult = validatePartialTask({ data: request.body });
 
     if (!validationResult.success) {
-      return response
-        .status(400)
-        .json({ error: validationResult.message});
+      return response.status(400).json({ error: validationResult.message });
     }
 
     const { id } = request.params;
     try {
-      const {taskWasUpdated, updatedTask} = await this.TaskModel.update({
+      const { taskWasUpdated, updatedTask } = await this.TaskModel.update({
         id: id,
         newData: request.body
       });
@@ -83,18 +81,16 @@ export class TaskController {
     }
   };
 
-  editStatus = async(request, response) =>{
-    const {id} = request.params;
-    const validationResult = validatePartialTask({data: request.body});
-    console.log(id, request.body)
+  editStatus = async (request, response) => {
+    const { id } = request.params;
+    const validationResult = validatePartialTask({ data: request.body });
+    console.log(id, request.body);
     if (!validationResult.success) {
-      return response
-        .status(400)
-        .json({ error: validationResult.message});
+      return response.status(400).json({ error: validationResult.message });
     }
     console.log(validationResult);
     try {
-      const {taskWasUpdated} = await this.TaskModel.updateStatus({
+      const { taskWasUpdated } = await this.TaskModel.updateStatus({
         id: id,
         status: validationResult.data.status
       });
@@ -111,22 +107,33 @@ export class TaskController {
         error: error.message
       });
     }
-  }
+  };
 
   delete = async (request, response) => {
     const { id } = request.params;
     try {
       const result = await this.TaskModel.delete({ id });
 
-      if (!result) {
-        response.status(404).json({ task: "Task was not found" });
-      }
+      if (!result)
+        return response.status(404).json({ task: "Task was not found" });
 
-      return response.json({ message: "Task deleted successfully" });
+      response.json({ message: "Task deleted successfully" });
     } catch (error) {
-      response
-        .status(500)
-        .json({ error: error.message });
+      response.status(500).json({ error: error.message });
+    }
+  };
+
+  deleteFinished = async (request, response) => {
+    try {
+      const result = await this.TaskModel.deleteAllFinished();
+
+      if (!result)
+        return response
+          .status(404)
+          .json({ message: "Not found finished tasks" });
+      response.json({ message: "Tasks deleted successfully" });
+    } catch (error) {
+      response.status(500).json({ error: error.message });
     }
   };
 }
