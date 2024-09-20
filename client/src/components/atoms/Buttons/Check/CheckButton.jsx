@@ -28,16 +28,11 @@ export const CheckButton = ({ isDisabled=false, taskStatus = false, taskId }) =>
 	const changeStatus = async () => {
 		const newStatus = !isChecked;
 		setIsChecked(newStatus);
-		// console.log(isChecked);
 		const taskStatusInTinyInt = booleanToTinyInt(newStatus);
 		const {message, isError, error} = await updateTaskStatus(taskId, taskStatusInTinyInt);
 		if(isError === true){
-			// setIsChecked((prevStatus)=>!prevStatus);
-			// console.log(isChecked);
 			return alert('There has been an error updating the task', error);
 		}
-		// console.log(isChecked);
-		alert(message);
 		await fetchTasks();
 	};
 
